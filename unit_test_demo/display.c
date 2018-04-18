@@ -7,7 +7,7 @@ struct display
 
 display_t display_create(volatile uint8_t *port)
 {
-    *(port-1) = 0xff;
+    //*(port-1) = 0xff; a little to clever...
     *port = 0xff;
     display_t new_display = (display_t)malloc(sizeof(struct display));
     new_display->port = port;

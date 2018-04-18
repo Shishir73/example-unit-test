@@ -8,7 +8,7 @@ typedef struct display * display_t;
 
 /*
  * Constructor of display.
- * Initializes the given port as an output.
+ * The given port must be initialized beforehand
  */
 display_t display_create(volatile uint8_t *port);
 
