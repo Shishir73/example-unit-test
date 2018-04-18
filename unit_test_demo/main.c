@@ -13,7 +13,7 @@ int main(void)
     // you initialization code here...
     sei();
     // and then the rest of your program...
-    printf("Initiating main program...");
+    printf("Initiating main program...\n");
 
     while (1)
     {

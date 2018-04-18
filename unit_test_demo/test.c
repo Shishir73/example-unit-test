@@ -8,28 +8,21 @@
 #include <util/delay.h>
 #include "atmega2560_drivers.h"
 #include "minunit.h"
+#include "test_display.h"
 
 int tests_run = 0;
 
-static char * test_sample()
-{
-    int result = 0; // call to function here
-    mu_assert("assertion in real words", result == 0);
-    return 0;
-}
-
 static char * all_tests()
 {
-    mu_run_test(test_sample);
+    mu_run_suite(all_display_tests);
     return 0;
 }
-
 
 int main()
 {
     init_stdio(0, 10000000L);
     sei();
-    printf("Initiating test...");
+    printf("Initiating test...\n");
 
     char *result = all_tests();
     if (result != 0) {
