@@ -2,13 +2,15 @@
 
 struct display
 {
+    volatile uint8_t *port;
 };
 
-display_t display_create()
+display_t display_create(volatile uint8_t *port)
 {
-    DDRA = 0xff;
-    PORTA = 0xff;
+    *(port-1) = 0xff;
+    *port = 0xff;
     display_t new_display = (display_t)malloc(sizeof(struct display));
+    new_display->port = port;
     return new_display;
 }
 
@@ -19,5 +21,5 @@ display_t display_create()
 void display_turn_on_led(display_t self, uint8_t number)
 {
 
-    PORTA &= ~(1<<number);
+    *(self->port) &= ~(1<<number);
 }

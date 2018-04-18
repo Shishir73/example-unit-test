@@ -3,12 +3,14 @@
 #define DISPLAY_H_
 #include <stdint.h>
 #include <stdlib.h>
-#include <avr/io.h>
-
 
 typedef struct display * display_t;
 
-display_t display_create();
+/*
+ * Constructor of display.
+ * Initializes the given port as an output.
+ */
+display_t display_create(volatile uint8_t *port);
 
 /*
  * Lights up led with provided number

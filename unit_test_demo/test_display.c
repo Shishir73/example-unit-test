@@ -2,7 +2,7 @@
 
 static char * test_display_turnOnLed0()
 {
-    display_t display = display_create();
+    display_t display = display_create(&PORTA);
     display_turn_on_led(display, 0);
     int result = PORTA;
     mu_assert("result != 0b11111110 ", result == 0b11111110);
